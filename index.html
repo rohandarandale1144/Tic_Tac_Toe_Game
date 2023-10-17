@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<!-- <style>
+</style> -->
+
+<body>
+    <h1>Tic Tac Toe</h1>
+    <div class="formout">
+        <div class="formcont">
+            <p>Player X : </p>
+            <input placeholder="Enter Player X Name" id="playerx" />
+        </div>
+        <div class="formcont">
+            <p>Player O : </p>
+            <input placeholder="Enter Player O Name" id="playero" />
+        </div>
+
+        <button onclick="startgame()">Start Game</button>
+    </div>
+
+</body>
+
+
+<script>
+    localStorage.clear()
+
+    const startgame = () => {
+        if (document.getElementById('playerx').value == ""
+            || document.getElementById('playero').value == ""
+        ) {
+            alert("Please Enter Player Name")
+        }
+
+        else if (
+            document.getElementById('playerx').value ==
+            document.getElementById('playero').value
+        ) {
+            alert("Player Name Should be Different")
+        }
+
+        else {
+            localStorage.setItem('playerx', document.getElementById('playerx').value)
+            localStorage.setItem('playero', document.getElementById('playero').value)
+            localStorage.setItem('playerxscore', 0)
+            localStorage.setItem('playeroscore', 0)
+
+
+            window.location.href = "./gameboard.html"
+        }
+
+    }
+</script>
+
+</html>
